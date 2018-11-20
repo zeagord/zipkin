@@ -3,7 +3,8 @@ import {showSpans, hideSpans, initSpans} from '../../js/component_ui/trace';
 import {traceDetailSpan} from './traceTestHelpers';
 import traceToMustache from '../../js/component_ui/traceToMustache';
 import {traceTemplate} from '../../js/templates';
-import testTrace from '../../testdata/v1';
+import {SPAN_V1} from '../../js/spanConverter';
+import testTrace from '../../testdata/netflix';
 
 describe('showSpans', () => {
   it('expands and highlights span to show', () => {
@@ -196,16 +197,20 @@ function renderTrace(trace) {
 
 describe('initSpans', () => {
   it('should return initial data from rendered trace', () => {
-    const $trace = renderTrace(testTrace);
+    const v1trace = [];
+    testTrace.forEach((span) => {
+      v1trace.push(SPAN_V1.convert(span));
+    });
+    const $trace = renderTrace(v1trace);
     const data = initSpans($trace);
-    const span = data.spans['4e441824ec2b6a44'];
-    span.id.should.equal('4e441824ec2b6a44');
+    const span = data.spans['90394f6bcffb5d13'];
+    span.id.should.equal('90394f6bcffb5d13');
     span.expanded.should.equal(false);
     span.isRoot.should.equal(true);
-    data.spansByService['zipkin-server'].length.should.equal(6);
-    data.spansByService['zipkin-server'][0].should.equal('4e441824ec2b6a44');
+    data.spansByService.apip.length.should.equal(4);
+    data.spansByService.apip[0].should.equal('90394f6bcffb5d13');
     // Child span should not be visible on the first load
-    const childSpan = data.spans.ac58adf502d0c940;
+    const childSpan = data.spans['67fae42571535f60'];
     childSpan.isRoot.should.equal(false);
     childSpan.is(':visible').should.equal(false);
   });
