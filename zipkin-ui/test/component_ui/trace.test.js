@@ -205,8 +205,8 @@ describe('initSpans', () => {
     data.spansByService['zipkin-server'].length.should.equal(6);
     data.spansByService['zipkin-server'][0].should.equal('4e441824ec2b6a44');
     // Child span should not be visible on the first load
-    const childSpan = data.spans['ac58adf502d0c940'];
+    const childSpan = data.spans.ac58adf502d0c940;
     childSpan.isRoot.should.equal(false);
     childSpan.is(':visible').should.equal(false);
-});
+  });
 });

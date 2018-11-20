@@ -364,16 +364,16 @@ export default component(function trace() {
   };
 
 
-  this.showRootSpan = function () {
+  this.showRootSpan = function() {
     const self = this;
     $.each(self.spans, (id, $span) => {
       if ($span.isRoot) {
         $span.expanded = false;
         $span.$expander.text('+');
         $span.show();
-    }
+      }
     });
-  }
+  };
   /* This method modifies the span container view. It zooms in the span view
    * for selected time duration. Spans starting with in the selected time
    * duration are highlighted with span name in red color.
