@@ -1,0 +1,211 @@
+[
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "4e441824ec2b6a44",
+    "name": "get",
+    "timestamp": 1477975620117000,
+    "duration": 500209,
+    "annotations": [
+      {
+        "timestamp": 1477975620117000,
+        "value": "sr",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "timestamp": 1477975620617209,
+        "value": "ss",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ],
+    "binaryAnnotations": [
+      {
+        "key": "http.status_code",
+        "value": "200",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "key": "http.url",
+        "value": "/api/v1/traces",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ]
+  },
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "ac58adf502d0c940",
+    "name": "get-traces",
+    "parentId": "4e441824ec2b6a44",
+    "timestamp": 1477975620118000,
+    "duration": 498338,
+    "binaryAnnotations": [
+      {
+        "key": "lc",
+        "value": "ElasticsearchStorage",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "key": "request",
+        "value": "QueryRequest{serviceName=zipkin-server, spanName=null, annotations=[], binaryAnnotations={}, minDuration=null, maxDuration=null, endTs=1477975618900, lookback=3600000, limit=10}",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ]
+  },
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "979e96052b4891e3",
+    "name": "search-spansaggregations",
+    "parentId": "4e441824ec2b6a44",
+    "timestamp": 1477975620118000,
+    "duration": 203869,
+    "binaryAnnotations": [
+      {
+        "key": "lc",
+        "value": "okhttp",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ]
+  },
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "4e5d61949c0892cc",
+    "name": "search-spans",
+    "parentId": "4e441824ec2b6a44",
+    "timestamp": 1477975620323000,
+    "duration": 276210,
+    "binaryAnnotations": [
+      {
+        "key": "lc",
+        "value": "okhttp",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ]
+  },
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "beaaf1c1efc6d206",
+    "name": "post",
+    "parentId": "979e96052b4891e3",
+    "timestamp": 1477975620120000,
+    "duration": 202036,
+    "annotations": [
+      {
+        "timestamp": 1477975620120000,
+        "value": "cs",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "timestamp": 1477975620322036,
+        "value": "cr",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ],
+    "binaryAnnotations": [
+      {
+        "key": "http.url",
+        "value": "https://search-zipkin-2rlyh66ibw43ftlk4342ceeewu.ap-southeast-1.es.amazonaws.com/zipkin-2016-11-01/span/_search?allow_no_indices=true&expand_wildcards=open&ignore_unavailable=true",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "key": "sa",
+        "value": true,
+        "endpoint": {
+          "serviceName": "elasticsearch",
+          "ipv4": "54.255.164.52",
+          "port": 443
+        }
+      }
+    ]
+  },
+  {
+    "traceId": "4e441824ec2b6a44",
+    "id": "85b0f411c04c6ce3",
+    "name": "post",
+    "parentId": "4e5d61949c0892cc",
+    "timestamp": 1477975620325000,
+    "duration": 274492,
+    "annotations": [
+      {
+        "timestamp": 1477975620325000,
+        "value": "cs",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "timestamp": 1477975620599492,
+        "value": "cr",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      }
+    ],
+    "binaryAnnotations": [
+      {
+        "key": "http.url",
+        "value": "https://search-zipkin-2rlyh66ibw43ftlk4342ceeewu.ap-southeast-1.es.amazonaws.com/zipkin-2016-11-01/span/_search?allow_no_indices=true&expand_wildcards=open&ignore_unavailable=true",
+        "endpoint": {
+          "serviceName": "zipkin-server",
+          "ipv4": "192.168.99.1",
+          "port": 9411
+        }
+      },
+      {
+        "key": "sa",
+        "value": true,
+        "endpoint": {
+          "serviceName": "elasticsearch",
+          "ipv4": "54.255.164.52",
+          "port": 443
+        }
+      }
+    ]
+  }
+]

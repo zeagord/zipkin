@@ -3,6 +3,7 @@ import {showSpans, hideSpans, initSpans} from '../../js/component_ui/trace';
 import {traceDetailSpan} from './traceTestHelpers';
 import traceToMustache from '../../js/component_ui/traceToMustache';
 import {traceTemplate} from '../../js/templates';
+import testTrace from '../../testdata/v1';
 
 describe('showSpans', () => {
   it('expands and highlights span to show', () => {
@@ -195,41 +196,17 @@ function renderTrace(trace) {
 
 describe('initSpans', () => {
   it('should return initial data from rendered trace', () => {
-    const testTrace = [{
-      traceId: '2480ccca8df0fca5',
-      name: 'get',
-      id: '2480ccca8df0fca5',
-      timestamp: 1457186385375000,
-      duration: 333000,
-      annotations: [{
-        timestamp: 1457186385375000,
-        value: 'sr',
-        endpoint: {serviceName: '111', ipv4: '127.0.0.1', port: 9411}
-      }, {
-        timestamp: 1457186385708000,
-        value: 'ss',
-        endpoint: {serviceName: '111', ipv4: '127.0.0.1', port: 9411}
-      }],
-      binaryAnnotations: [{
-        key: 'sa',
-        value: true,
-        endpoint: {serviceName: '111', ipv4: '127.0.0.1', port: 9411}
-      }, {
-        key: 'literally-false',
-        value: 'false',
-        endpoint: {serviceName: '111', ipv4: '127.0.0.1', port: 9411}
-      }]
-    }];
-
     const $trace = renderTrace(testTrace);
     const data = initSpans($trace);
-
-    const span = data.spans['2480ccca8df0fca5'];
-    span.id.should.equal('2480ccca8df0fca5');
+    const span = data.spans['4e441824ec2b6a44'];
+    span.id.should.equal('4e441824ec2b6a44');
     span.expanded.should.equal(false);
     span.isRoot.should.equal(true);
-
-    data.spansByService['111'].length.should.equal(1);
-    data.spansByService['111'][0].should.equal('2480ccca8df0fca5');
-  });
+    data.spansByService['zipkin-server'].length.should.equal(6);
+    data.spansByService['zipkin-server'][0].should.equal('4e441824ec2b6a44');
+    // Child span should not be visible on the first load
+    const childSpan = data.spans['ac58adf502d0c940'];
+    childSpan.isRoot.should.equal(false);
+    childSpan.is(':visible').should.equal(false);
+});
 });
