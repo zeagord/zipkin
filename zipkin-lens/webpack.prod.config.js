@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/target/classes/zipkin-lens/'),
     filename: 'app-[hash].min.js',
-    publicPath: '/zipkin/',
+    publicPath: process.env.BASE_PATH || '/zipkin/',
   },
   module: {
     rules: [
@@ -83,6 +83,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         API_BASE: JSON.stringify(process.env.API_BASE),
+        PUBLIC_PATH: JSON.stringify(process.env.PUBLIC_PATH),
       },
     }),
   ],

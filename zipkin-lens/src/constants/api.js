@@ -1,4 +1,5 @@
 const { API_BASE } = process.env;
+const { PUBLIC_PATH } = process.env;
 
 export const ZIPKIN_API = `${API_BASE || ''}/zipkin/api/v2`;
 export const SERVICES = `${ZIPKIN_API}/services`;
@@ -8,3 +9,5 @@ export const TRACE = `${ZIPKIN_API}/trace`;
 export const DEPENDENCIES = `${ZIPKIN_API}/dependencies`;
 export const AUTOCOMPLETE_KEYS = `${ZIPKIN_API}/autocompleteKeys`;
 export const AUTOCOMPLETE_VALUES = `${ZIPKIN_API}/autocompleteValues`;
+export const BASE_PATH = `${PUBLIC_PATH}` || '/zipkin/';
+
